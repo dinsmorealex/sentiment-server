@@ -5,8 +5,9 @@
 	
 	<title>slider-search</title>
 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
 <!-- 	<link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
+<link href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700' rel='stylesheet' type='text/css'>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -14,65 +15,112 @@
 	
 <style>
 		body {
-		  font-family: sans-serif;
+		background-color: black;
+		font-family: 'Rajdhani', sans-serif;
 		  font-size: 16px;
 		  margin: 50px;
-		  max-width: 800px;
-		  color:blue;
+	
+		  color:white;
 		}
 #good{
 	float:left;
-	color:blue;
-	width:25%;
+	color:white;
+	width:auto;
+
+}
+#container{
+	margin: 0 auto;
+	width:; auto;
 
 }
 
-#bad{
-	float:left;
-	color:red;
-	width:25%;
-
-}
-
-#meh{
-	float:left;
-	color: green;
-	width:25%;
-
-}
-		#h1{
+		#div1{
+			
 			margin: 0 auto;
 			text-align:center;
-			text-align:center;
-			color:blue;
+			
+			font-style: normal;
+			font-size:30px;
+			padding: 5px;
+			
 
 		}
 
-		#search-box{
-			width:100%;
-			margin: 0 auto;
-			text-align:center;
+		#search-container{
+			width:auto;
+			margin:auto;
+			margin:0 auto;
+
 		}
 
-		#display{
-			width:25%;
+		#sentiment-container{
+			
+			width:auto;
+			margin:auto;
+		
+			text-align:left;
 
+		}
+
+
+		#search-title{
+			width:auto%;
+			margin:auto;
+			text-align:center;
 			float:left;
+		padding-left: 40%;		
 			
 		}
 
-		
+		#search-box{
+			width:auto%;
 
-</style>
+			text-align:center;
+			
+			float:left;
+			/*padding-left: 45%;*/
+			
+		}	
+
+
+
+		#display{
+			width:60%
+			margin: 0 auto;
+			padding-top:4%;
+			text-align: center;
+			
+		}
+
+
+		#head-line{
+
+			padding:20px;
+			text-align:center;
+		}
+
+		</style>
+
+	</head>
+	<body>
+		<div id="container">
+			<div id="div1">opinion validation</div>
+
+
+			<div -d="search-container">
+				<div id="search-title">topic:&nbsp&nbsp</div>
+				<div id="search-box"></div>
+				
+
+			</div>
+			<div id="sentiment-container">
+
+			</div>
+			<div id="display">
+			</div>
+
+		</div>
 	
-</head>
-<body>
-	<h1>SLIDER SEARCH</h1>
-	<div id="search-box"></div>
-	<div id="display"></div>
-	<div id="good"><h1>good</h1></div>
-	<div id="bad"><h1>bad</h1></div>
-	<div id="meh"><h1>milk</h1></div>
 
 
 	
