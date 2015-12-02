@@ -38,22 +38,28 @@ socket.on("mood",function(data){
 
 var prevData=0;
 	// $('#sentiment-container').text(data);
-
+prevData=data;
 	if (data=="like"){
 		 $("body").css("color", "#96E5FF");
+
+
 	}
 
 
 	else if (data="dislike"){
-		 $("body").css("color", "#FF4141");
+		 $("body").css("color", "#FFB3B3");
 	}
 
-prevData=data;
 
-if (data!=prevData){
-	appendData();
+
+if (prevData!=data){
+	$('#display').empty();
+	
+
 
 }
+
+
 
 
 })
