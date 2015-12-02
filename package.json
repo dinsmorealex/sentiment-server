@@ -1,0 +1,25 @@
+{
+  "name": "sentiment-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "._test.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.13.3",
+    "http": "^0.0.0",
+    "newyorktimes": "^0.0.2",
+    "oauth": "^0.9.14",
+    "request": "^2.65.0",
+    "requestify": "^0.1.17",
+    "sentiment": "^1.0.2",
+    "serialport": "^2.0.5",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
