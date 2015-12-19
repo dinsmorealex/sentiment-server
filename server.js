@@ -17,7 +17,7 @@ var keys = {
 
 
 var SerialPort  = require("serialport").SerialPort;
-var portName = "/dev/cu.usbmodem1084111";
+var portName = "/dev/cu.usbmodem1205991";
 var fs = require("fs");
 var url = require("url");
 // var words = require("an-array-of-english-words")
@@ -71,11 +71,11 @@ http.listen(3030);
 
 console.log("server started on localhost:3030");
 
-var io = require("socket.io").listen(http); // server listens for socket.io communication at port 8000
-io.set("log level", 1); // disables debugging. this is optional. you may remove it if desired.
+var io = require("socket.io").listen(http) // server listens for socket.io communication at port 8000
+// io.set("log level", 1); // disables debugging. this is optional. you may remove it if desired.
 
 var sp = new SerialPort(portName, {
-	baudrate: 115200,
+	baudrate: 9600,
 
 	dataBits: 8, 
 	parity: 'none', 
@@ -146,39 +146,8 @@ var feelings= sentiment(ted);
 var rate= feelings.score;
 
 sentimentArray.push(rate);
-// 
 
-// console.log(rate* 10);
 
-// if (rate*10 < -15){
-// 	superBadArray.push(fred)
-
-// }
-
-// if (rate*10 < 0 || rate*10 > -15){
-// 	badArray.push(fred)
-
-// }
-
-// if (rate*10 < 0 || rate*10 > -15){
-// 	badArray.push(fred)
-
-// }
-
-// if (rate*10 == 0){
-// 	mehArray.push(fred)
-
-// }
-
-// if (rate*10 >0 || rate*10 < 15){
-// 	goodArray.push(fred)
-
-// }
-
-// if (rate*10 >15 ){
-// 	superGoodArray.push(fred)
-
-// }
 
   }
 
@@ -195,9 +164,7 @@ var skin = 0;
 var prevWordChoice = 0;
 var info= 0;
 var mood=0;
-// var positive =[];
-// var negative =[];
-// var arrayToSend=[];
+
 
 sp.on("data", function(data) { // call back when data is received
 
@@ -220,7 +187,7 @@ sp.on("data", function(data) { // call back when data is received
 		
 		
 
-		// io.sockets.emit("message",wordChoice);
+		io.sockets.emit("message",wordChoice);
 
 		// searchAndDestroy(wordChoice);
 
@@ -235,19 +202,15 @@ sp.on("data", function(data) { // call back when data is received
 		var decide = goose.split("Z")[0];
 
 		skin = decide;
-
-		
-		
-		io.sockets.emit("button", decide);
-
 		
 	}
-
+io.sockets.emit("data", userFeeling,skin);
 	sp.write("%"+userFeeling);
 	console.log("STORY:  "+wordChoice);
 	console.log("STORY SENTIMENT: "+userFeeling);
 	console.log("USER SENTIMENT:  "+skin);
 
+ // io.sockets.emit("mood",skin);
 	// if (chicken.indexOf("B") >=0){
 	// 	var turkey = chicken.split("B")[1];
 	// 	var cow = turkey.split("Z")[0];
